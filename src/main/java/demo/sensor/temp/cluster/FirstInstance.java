@@ -13,12 +13,11 @@ public class FirstInstance {
   private static final Logger logger = LoggerFactory.getLogger(FirstInstance.class);
 
   public static void main(String[] args) {
-    ClusterManager mgr = new InfinispanClusterManager();
+    //ClusterManager mgr = new InfinispanClusterManager();
 
-    VertxOptions options = new VertxOptions().setClusterManager(mgr);
+    //VertxOptions options = new VertxOptions().setClusterManager(mgr);
 
-    //Vertx.clusteredVertx(new VertxOptions(), ar -> {
-    Vertx.clusteredVertx(options, ar -> {
+    Vertx.clusteredVertx(new VertxOptions(), ar -> {
       if (ar.succeeded()) {
         logger.info("First instance has been started");
         Vertx vertx = ar.result();
